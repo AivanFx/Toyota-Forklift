@@ -1,0 +1,76 @@
+.error-message
+{
+ color: var(--ion-color-danger);
+}
+
+.go-to-register
+{
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+:root {
+  --ion-safe-area-top: 20px;
+  --ion-safe-area-bottom: 22px;
+}
+.swiper-slide {
+  display: block;
+}
+
+// ion-slides{
+//   height: 100%;
+// }
+
+ion-slide{
+  h1{
+    color: white;
+  }
+  img{
+    max-height: 50%;
+  max-width: 70%;
+  }
+  p{
+    color: white;
+  }
+}
+
+
+.slider2 img {
+  max-width: 40%;
+  width:40%;
+}
+
+.slider2{
+  h2{
+  color: #d40000;
+  }
+  p{
+    color:white;
+  }
+  
+}
+
+
+.boton-letsgo:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.welcome-page-styles {
+ 
+  --background: url('../../assets/imgs/fondo-login.jpg') no-repeat cover fixed center;
+  background: url('../../assets/imgs/fondo-login.jpg') no-repeat fixed center;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+
+.swiper-slide{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  height: 100vh;
+  padding-bottom: 3rem;
+}

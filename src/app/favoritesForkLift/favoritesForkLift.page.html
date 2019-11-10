@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="products"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Favorite ForkLift List</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="favorites" class="list-mini-content" fullscreen>
+
+  <div *ngIf="favorites.length > 0" class="list-mini">
+
+<!-- se repite un sliding para cada torro metido en la lista de favoritos -->
+    <ion-item *ngFor="let favorite of favorites">
+
+<!-- aquí empieza el sliding -->
+      <ion-item-sliding>
+
+        <ion-item>
+
+          <ion-avatar slot="start" size="large">
+            <img src="../../assets/imgs/{{favorite.model}}.jpg">
+          </ion-avatar>
+
+          <ion-label>
+            <h2>{{favorite.model | uppercase}} </h2>
+            <h3>{{favorite.loadCapacity}} Kg.</h3>
+            <p>{{favorite.price}} €.</p>
+          </ion-label>
+
+          <!-- botones derecha y izquierda, para indicar el movimiento de slide -->
+          <ion-icon name="arrow-dropleft-circle" size="medium"></ion-icon>
+          <ion-icon name="arrow-dropright-circle" size="medium"></ion-icon>
+
+        </ion-item>
+
+<!-- aquí van los botones del slide -->
+
+        <ion-item-options>
+
+          
+
+<!-- este boton nos envia a detalles del toro correspondiente al pulsarlo -->
+          <ion-item-option color="light">
+            <ion-button (click)="goToDetail(favorite)" color="primary" expand="block" size="medium">
+              <ion-icon slot="icon-only" name="more"></ion-icon>
+              Details
+            </ion-button>
+          </ion-item-option>
+          
+<!-- este boton borra el toro correspondiente de la lista de favoritos al pulsar sobre el -->
+
+          <ion-item-option color="light">
+            <ion-button   class="delete-button" (click)="deleteItem(favorite)" color="danger" expand="block" size="medium">
+              <ion-icon slot="icon-only" name="trash"></ion-icon>
+              Delete
+            </ion-button>
+
+          </ion-item-option>
+
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-item>
+  </div>
+
+
+  <div *ngIf="favorites.length == 0" class="empty-list">
+    Please add a new Favorite ForkLift.
+  </div>
+</ion-content>

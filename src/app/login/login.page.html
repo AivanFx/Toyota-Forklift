@@ -1,0 +1,33 @@
+<ion-content padding class="form-content">
+  <img class="logo-toyota" src="../assets/imgs/toyota-emblem.svg"/>
+  <form class="form" [formGroup]="validations_form" (ngSubmit)="tryLogin(validations_form.value)">
+    <ion-item class="login-register-inputs">
+      <ion-label position="floating" color="light">Email</ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.email">
+        <div class="error-message" *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item class="login-register-inputs">
+      <ion-label position="floating" color="light">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.password">
+        <div class="error-message" *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-button class="submit-btn" size="medium" expand="block" type="submit"  color="danger" [disabled]="!validations_form.valid" >LOGIN</ion-button>
+    <label class="error-message">{{errorMessage}}</label>
+  </form>
+  
+  <p class="go-to-register">
+    No account yet? <a (click)="goRegisterPage()">Create an account.</a>
+  </p>
+</ion-content>
